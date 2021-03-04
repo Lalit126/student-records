@@ -1,0 +1,14 @@
+
+
+.new-style a:link{
+    display: inline;
+    font-size: small;
+
+}
+
+.new-style a:hover{
+
+    display: inline;
+    background-color: lightseagreen;
+  
+}
