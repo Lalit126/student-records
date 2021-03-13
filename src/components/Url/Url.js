@@ -1,27 +1,15 @@
-import React from 'react';
-import './Url.css';
-import PropTypes from 'prop-types'; // ES6
 
+import React from "react";
+import './Url.css'
 
-function Url({careerUrl,children:mychild,mystyle}) {
+const Url = ({children}) => {
+ 
+  return (
+    <span className='url-container'>
+     {children}
+    </span>
+  )
+  
+};
 
-// console.log(children,'children');
- return (
-    <div className={mystyle}>
-        <a href={careerUrl}>{`${mychild} `}</a>
-    </div>)
-}
-
-
-export default Url
-
-Url.propTypes = {
-    careerUrl:PropTypes.string.isRequired,
-    mychild:PropTypes.node,
-    mystyle:PropTypes.string,
-    
-}
-
-Url.defaultProps = {
-    careerUrl: 'https://cnn.com'
-  };
+export default Url;

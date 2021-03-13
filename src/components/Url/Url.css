@@ -1,14 +1,18 @@
 
 
-.new-style a:link{
-    display: inline;
-    font-size: small;
-
-}
-
-.new-style a:hover{
-
-    display: inline;
-    background-color: lightseagreen;
+.url-container {
+    color: #007bff;
+  }
   
-}
+  .url-container:visited {
+    color: red;
+  }
+  
+  .url-container:hover {
+    text-decoration: underline;
+    color:#0056b3;
+  }
+  
+  .url-container:active {
+    color: hotpink;
+  } 

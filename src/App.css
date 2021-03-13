@@ -33,7 +33,7 @@ margin-top: 15px;
 margin-left: 44%;
 
 }
-/* 
+
 .page {
   margin-right: 15px;
   margin-left: 10px;
@@ -55,7 +55,16 @@ margin-left: 44%;
     font-size: 26px;
     font-weight: bolder;
     
-      } */
+      } 
+
+ 
 
 
-      
+      .graph-card :hover{
+        
+        mask-border-source: 40%;
+        box-shadow: 10px 5px 5px gray;
+        padding-bottom : 50px;
+     
+        
+      }
