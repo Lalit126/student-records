@@ -1,11 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Routing from './Routing';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Auth0Provider } from '@auth0/auth0-react';
-import  Routing from './Routing';
+import { Auth0Provider } from "@auth0/auth0-react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,25 +12,18 @@ import {
   Link
 } from "react-router-dom";
 
-
-
-
 ReactDOM.render(
- 
-  <Auth0Provider
-    domain="dev-whvu660l.us.auth0.com"
-    clientId="1kep9XQ4yck6huyq44HosMxlcO6ckX6H"
+  <React.StrictMode>
+    <Auth0Provider
+    domain={process.env.REACT_APP_AUTH0_DOMAIN}
+    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
     redirectUri={window.location.origin}
   >
-  
-  <React.StrictMode>
-  
     <Router>
-       <Routing/>
+       <Routing />
     </Router>
-  </React.StrictMode>
-  </Auth0Provider>,
-
+    </Auth0Provider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
@@ -39,3 +31,28 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// let str=`I can code all Night long`
+// let regex=/\s[a-z]+/gm
+
+// let ret= str.replace(regex,(arg)=>{
+
+//   console.log(arg,'arg');
+// let play= arg.charAt(1).toUpperCase() + arg.slice(2)
+// console.log(play,'play');
+// return ` ${play}`
+// })
+
+// let str=`Three girls went to forest .Monkey said yee yaaaaaw `
+// let regex=/([a-z])\1+/gmi
+
+// let ret = str.match(regex)
+// console.log(ret,'ret');
+// return ret.join("")
+
+// let str=`When boy went to boarding school, he was fine`
+// let regex=/\sb[a-z]+/gmi
+
+// let ret = str.match(regex)
+// console.log(ret,'ret');
+// return ret[0].trim().length  

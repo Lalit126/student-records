@@ -1,0 +1,28 @@
+@import 'beststyles';
+
+
+
+
+* {
+margin:0;
+box-sizing: border-box;
+text-align: center;
+font-size:20px;
+font-family: ariel;
+}
+
+a:link {
+    color: aqua;
+  }
+  
+  a:visited {
+    color: red;
+  }
+  
+  a:hover {
+    color: lightgreen;
+  }
+  
+  a:active {
+    color: hotpink;
+  } 

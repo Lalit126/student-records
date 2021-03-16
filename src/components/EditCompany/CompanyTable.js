@@ -8,9 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Url from '../Url/Url';
-import {formattedDate} from '../../helpers/timeanddateHelpers';
-import moment from 'moment'
-
 import { Badge } from 'reactstrap';
 import {
   Switch,
@@ -25,7 +22,6 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: '#ffd51e',
     color: 'black',
-    width: '20%'
   },
   body: {
     fontSize: 14,
@@ -35,7 +31,7 @@ const StyledTableCell = withStyles((theme) => ({
 const StyledTableRow = withStyles((theme) => ({
   root: {
     '&:nth-of-type(odd)': {
-      backgroundColor: 'FloralWhite',
+      backgroundColor: theme.palette.action.hover,
     },
   },
 }))(TableRow);
@@ -47,44 +43,42 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomizedTables({data}) {
+export default function CustomizedTables({data,selectedRow,setSelectedRow}) {
     console.log(data,'data')
   const classes = useStyles();
   const history= useHistory()
 
   return (
-    <TableContainer component={Paper} >
+    <TableContainer component={Paper}>
     <Badge style={{margin:'20px'}} color="success"> {`Found ${data.length} records`}</Badge>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Employer</StyledTableCell>
-            <StyledTableCell align="left">Job Title</StyledTableCell>
-            <StyledTableCell align="left">Job Start Date</StyledTableCell>
-            <StyledTableCell align="left">University Name</StyledTableCell>
-            <StyledTableCell align="left">Graduation Date</StyledTableCell>
-            <StyledTableCell align="left">Specialization</StyledTableCell>
-            <StyledTableCell align="left">Career Link</StyledTableCell>
-            <StyledTableCell align="left">Edit</StyledTableCell>
+            {/* <StyledTableCell align="right">Select</StyledTableCell> */}
+            <StyledTableCell>Company name</StyledTableCell>
+            <StyledTableCell>Edit</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data && data.map((row) => (
-            <StyledTableRow key={row._id} hover>
+            <StyledTableRow key={row._id}
+            onClick={() => setSelectedRow(row._id)}
+            >
+                                   
+
+                {/* <TableCell padding="checkbox">
+                        <Checkbox
+                          checked={row._id === selectedRow}
+                          // inputProps={{ 'aria-labelledby': labelId }}
+                        />
+                      </TableCell> */}
               <StyledTableCell component="th" scope="row">
-                {row.company.companyName}
+                {row.companyName}
               </StyledTableCell>
-              <StyledTableCell align="left">{row.jobTitle}</StyledTableCell>
-              <StyledTableCell align="left">{formattedDate(row.jobStartDate).format1}</StyledTableCell>
-              <StyledTableCell align="left">{row.universityName}</StyledTableCell>
-              <StyledTableCell align="left">{formattedDate(row.graduationDate).format1}</StyledTableCell>
-              <StyledTableCell align="left">{row.specialization}</StyledTableCell>
-              <StyledTableCell align="left" >
-                  <a href={`${row.company.careerUrl}`} target="_blank">Apply</a>
-                </StyledTableCell>
-              <StyledTableCell align="right" onClick={()=>history.push(`/editrecord/${row._id}`)} >
+              <StyledTableCell align="right" onClick={()=>history.push(`/editcompany/${row._id}`)} >
                  <Url>Edit</Url>
                   </StyledTableCell>
+             
             </StyledTableRow>
           ))}
         </TableBody>

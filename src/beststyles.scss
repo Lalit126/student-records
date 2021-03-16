@@ -1,0 +1,57 @@
+
+
+$fonty:"Georgia";
+$myfont-Size:20;
+$darktheme-background-color:black;
+$darktheme-color:white;
+$lighttheme-color:black;
+$lighttheme-background-color:yellow;
+
+@mixin darktheme {
+background-color: $darktheme-background-color;
+font-size: $myfont-Size;
+color: $darktheme-color;
+}
+
+@mixin lighttheme {
+background-color: $lighttheme-background-color;
+font-size: $myfont-Size;
+color: $lighttheme-color;
+}
+
+
+
+.darktheme {
+@include darktheme;
+height: 300px;
+width: 300px;
+}
+
+.lighttheme {
+@include lighttheme;
+height: 300px;
+width: 300px;
+}
+
+
+
+.toolip:hover {
+color:burlywood;
+
+
+
+}
+
+.bmxl {
+    margin-bottom: 20px;
+}
+.bpxl {
+    padding-bottom: 20px;
+}
+.dangerzone {
+  background-color: red; 
+  border:5px solid orange; 
+  margin:20px;
+  padding:20px;
+  text-align: center;
+}

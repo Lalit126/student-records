@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types'; // ES6
 
@@ -51,3 +51,4 @@ ModalExample.propTypes = {
 title:PropTypes.string.isRequired,
 buttonColor:PropTypes.string,
 }
+

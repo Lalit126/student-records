@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
+
+
+import React, { Fragment, useEffect, useState } from 'react';
 import './App.css'
+import './beststyles.scss'
 import DataTable from './components/DataTable/DataTable';
-import { useHistory } from "react-router-dom";
-import { Button,Input,Col} from 'reactstrap';
+import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
+import {  useHistory } from "react-router-dom";
+import { Button,Input, FormGroup,Label,Col} from 'reactstrap';
 import Spinner from '@material-ui/core/LinearProgress';
-import axios from './Axios'
-import {XYPlot,HorizontalGridLines,VerticalBarSeries, LineSeries, XAxis, YAxis} from 'react-vis';
-import Login from './components/Login/Login'
-import Navbar from './components/Navbar/Navbar'
+import axios from './Axios';
+import TopEmployers from './components/Visualizations/TopEmployers/TopEmployers';
+import NavBar from './components/NavBar/NavBar';
+
 
 function App() {
 const [data, setData]=useState([])
@@ -18,6 +23,8 @@ const [nextCursor, setNextCursor] = useState(null)
 console.log(nextCursor,'nextCursor');
 
 const history= useHistory()
+
+
 function handleKeyPress (e) {
 if(e.which == 13 || e.keyCode == 13){
     handleSearch()
@@ -92,54 +99,52 @@ if(isDataLoading){
 }
 
 return (  
-   
+
 <div className='container'>
-<Navbar>
 
-<h1> Student Records </h1>
+
+{/* <TopEmployers /> */}
+<NavBar>
 <div>
-<Col sm={4} >
-<Input value={searchText} onChange={(e)=>setSearchText(e.target.value)} 
-onKeyPress={(e)=>handleKeyPress(e)} autoFocus type="text" name="email" id="exampleEmail" placeholder="Search..." />
-<div style={{margin:'20px'}}>
-
-<Button disabled={searchInvoked} onClick={()=>handleSearch()} color="primary">Search</Button>
-{searchInvoked && <span style={{marginLeft:'20px'}}><Button  onClick={()=>handleClear()} color="primary">Clear</Button></span>
-}
+    <Login />
+    <Logout />
 </div>
-</Col>
-<Login/>
-
-</div>
-<div className ="graph-card">
-<XYPlot width={400} height={300} xType="ordinal">
-            <HorizontalGridLines />
-            <VerticalBarSeries
-               data={[
-                  { x: "Amazon", y: 10 },
-                  { x: "Facebook", y: 5 },
-                  { x: "Quint", y: 14 },
-                  { x: "Hello", y: 11 },
-                  { x: "Bye", y: 12 }
-               ]}
-            />
-            <XAxis />
-            <YAxis />
-            </XYPlot>
-            </div>
 <div>
 <div style={{margin:'20px',textAlign:'right'}}>
 <Button onClick={()=>getNext()} color="secondary">Next</Button>
 </div>
+
+
+<div>
+  
+<div className= "inline">
+<Input value={searchText} onChange={(e)=>setSearchText(e.target.value)} 
+onKeyPress={(e)=>handleKeyPress(e)} autoFocus type="text" name="email" id="inline" placeholder="Search..." />
+<div style={{margin:'20px'}}>
+</div>
+
+<div className ="inline">
+<Button disabled={searchInvoked} onClick={()=>handleSearch()} color="primary" id="inline">Search</Button>
+</div>
+
+</div>
+
+
+{searchInvoked && <span style={{marginLeft:'20px'}}><Button  onClick={()=>handleClear()} color="primary">Clear</Button></span>
+}
+</div>
+
 <DataTable 
 data={data}
 />
 </div>
-<div style={{margin:'20px',textAlign:'right'}}>
-<Button onClick={()=>getNext()} color="secondary">Next</Button>
+<div>
 
 </div>
-</Navbar>
+<div style={{margin:'20px',textAlign:'right'}}>
+<Button onClick={()=>getNext()} color="secondary">Next</Button>
+</div>
+</NavBar>  
 </div>
 
 

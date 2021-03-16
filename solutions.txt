@@ -1,0 +1,6 @@
+
+String Exercise Task 2 
+\sb[a-z]+
+Exercise 3 
+
+([a-z])\1+

@@ -1,6 +1,5 @@
-
 import React from "react";
-import './Url.css'
+import './Url.scss'
 
 const Url = ({children}) => {
  

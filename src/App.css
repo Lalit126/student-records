@@ -1,70 +1,85 @@
 
 
-.button{
-
-  margin: 10px 10px ;
-  padding: 3px 7px;
-  font-size: small;
-  width:max-content;
-  
+.container {
+    /* display:flex; */
+    /* flex-direction: column; */
+    margin:5vw;
 }
 
-.cardClick{
-  border-radius: 10px;
-  border-color: darkblue;
-}
 
-.search-bar{
+.Box2 {
 
-  align-self: center;
-
-}
-
-h1{
-
-  text-align: center;
-  padding-top: 20px;
-  font-weight: bolder;
-}
-
-.search-group{
-
-margin-top: 15px;
-margin-left: 44%;
+min-height: 140px;
+min-width:140px ;
+border: 1px solid grey;
+background-color: red;
+box-sizing :border-box; 
+margin:20px;
 
 }
 
-.page {
-  margin-right: 15px;
-  margin-left: 10px;
-  color:red;
-  padding-left: 10px;
-  
-  }
 
-  .page:hover {
-
-  
-    font-size: 18px;
-    font-weight: bolder;
+@media screen and (min-width: 760px) {
+   .container {
+       flex-direction: row;
    }
 
-   .highlightedpage {
+   .Box2 {
+    min-height: 120px;
+    min-width:20% ;
+    border: 1px solid grey;
+    background-color: red;
+    box-sizing :border-box; 
+    margin:1vw;
+   }
+
+  }
+
+  #outer {
+      background-color: blue;
+      min-width: 500px;
+      min-height: 500px;
+      margin:20px;
+  }
+  #middle {
+      background-color: orange;
+      min-width: 400px;
+      min-height: 400px;
+      margin:20px;
+  }
+  #inner {
+      background-color: yellow;
+      min-width: 300px;
+      min-height: 300px;
+      margin:20px;
+  } 
+
+
+.cardDiv:hover {
+ background-color: azure;
+ border:2px solid yellow;
+}
+
+  .page {
+margin-right: 15px;
+color:blue;
+
+  }
+
+
+
+.page:hover {
     margin-right: 15px;
-    color:blue;
-    font-size: 26px;
+    color:orange;
+    font-size: 22px;
     font-weight: bolder;
+   }
+   .inline{
     
-      } 
+    display: inline-flex; 
+    margin-bottom: 20px;
+    
+  
+    
 
- 
-
-
-      .graph-card :hover{
-        
-        mask-border-source: 40%;
-        box-shadow: 10px 5px 5px gray;
-        padding-bottom : 50px;
-     
-        
-      }
+}
